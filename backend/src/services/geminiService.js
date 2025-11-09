@@ -42,9 +42,7 @@ async function uploadAndAskGemini(filePath , prompt) {
                 }
             ]
         });
-        console.log('\nNội dung:\n', response.text);
-        console.log('\n' + '='.repeat(50));
-
+        console.log( response.text);
         return response.text;
     } catch (error) {
         console.error('Lỗi:', error.message);

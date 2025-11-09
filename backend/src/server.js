@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 
 const router = require('./routes/index');
-app.use('/api', router);
+app.use('/api/v1', router);
 
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to DKAI Backend API' });
