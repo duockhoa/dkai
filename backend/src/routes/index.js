@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const testRouter = require('./test.routes');
+const testResultsRouter = require('./testResult.routes');
 
 // Use test router
-router.use('/tests', testRouter);
+router.use('/split-test-results', testResultsRouter);
 
 
 module.exports = router;
