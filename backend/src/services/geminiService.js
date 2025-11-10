@@ -11,7 +11,7 @@ const ai = new GoogleGenAI({
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 // Hàm retry với exponential backoff
-async function retryWithBackoff(fn, maxRetries = 3, initialDelay = 1000) {
+async function retryWithBackoff(fn, maxRetries = 10, initialDelay = 1000) {
     let lastError;
     
     for (let attempt = 1; attempt <= maxRetries; attempt++) {
@@ -36,7 +36,7 @@ async function retryWithBackoff(fn, maxRetries = 3, initialDelay = 1000) {
     throw new Error(`Đã thử ${maxRetries} lần nhưng vẫn thất bại: ${lastError.message}`);
 }
 
-async function uploadAndAskGemini(filePath, prompt, maxRetries = 3) {
+async function uploadAndAskGemini(filePath, prompt, maxRetries = 10) {
     return retryWithBackoff(async () => {
         try {
             // Đọc file
